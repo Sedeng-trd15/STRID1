@@ -1,4 +1,64 @@
-import {firebaseConfig} from './firebase.js';
-const out=document.getElementById('output');
-const id=new URLSearchParams(location.search).get('id')||'STRID0001';
-out.innerHTML=`<p><b>Certificate:</b> ${id}</p><p>Starter project created. Next step: connect Firestore SDK.</p>`;
+import { db, doc, getDoc } from "./firebase.js";
+
+// Ambil parameter id dari URL
+const params = new URLSearchParams(window.location.search);
+const certificateId = params.get("id");
+
+// Ambil elemen HTML
+const loading = document.getElementById("loading");
+const verified = document.getElementById("verified");
+const invalid = document.getElementById("invalid");
+
+const certificate = document.getElementById("certificate");
+const product = document.getElementById("product");
+const batch = document.getElementById("batch");
+const status = document.getElementById("status");
+const year = document.getElementById("year");
+
+// Fungsi tampil error
+function showInvalid() {
+    loading.style.display = "none";
+    verified.style.display = "none";
+    invalid.style.display = "block";
+}
+
+// Jika URL tidak memiliki parameter id
+if (!certificateId) {
+    showInvalid();
+} else {
+
+    const docRef = doc(db, "products", certificateId);
+
+    getDoc(docRef)
+        .then((docSnap) => {
+
+            loading.style.display = "none";
+
+            if (docSnap.exists()) {
+
+                const data = docSnap.data();
+
+                certificate.textContent = certificateId;
+                product.textContent = data.product;
+                batch.textContent = data.batch;
+                status.textContent = data.status;
+                year.textContent = data.year;
+
+                verified.style.display = "block";
+
+            } else {
+
+                invalid.style.display = "block";
+
+            }
+
+        })
+        .catch((error) => {
+
+            console.error(error);
+
+            showInvalid();
+
+        });
+
+}
