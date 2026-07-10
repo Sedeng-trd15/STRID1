@@ -1,0 +1,8 @@
+export const firebaseConfig={
+apiKey:"AIzaSyA7O7kXm4s0TXWRUO0BzVIr4xipzzXbNXk",
+authDomain:"strid1.firebaseapp.com",
+projectId:"strid1",
+storageBucket:"strid1.firebasestorage.app",
+messagingSenderId:"70855667872",
+appId:"1:70855667872:web:d06c5485c8edc6ac2f59c5"
+};

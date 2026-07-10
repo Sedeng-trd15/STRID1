@@ -1,0 +1,4 @@
+import {firebaseConfig} from './firebase.js';
+const out=document.getElementById('output');
+const id=new URLSearchParams(location.search).get('id')||'STRID0001';
+out.innerHTML=`<p><b>Certificate:</b> ${id}</p><p>Starter project created. Next step: connect Firestore SDK.</p>`;
