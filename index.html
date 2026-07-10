@@ -1,1 +1,113 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>STRID</title><link rel="stylesheet" href="style.css"></head><body><div class="card"><h1>STRID</h1><p>Project starter.</p><p>Open with ?id=STRID0001</p><div id="output"></div><script type="module" src="script.js"></script></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STRID Authentication</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="logo">
+
+<h1>🛡 STRID</h1>
+
+<p>Official Product Authentication</p>
+
+</div>
+
+<div id="loading">
+
+<div class="loader"></div>
+
+<h2>Verifying Product...</h2>
+
+<p>Please wait while we verify your certificate.</p>
+
+</div>
+
+<div id="verified" style="display:none;">
+
+<div class="success">
+
+✔
+
+</div>
+
+<h2>PRODUCT VERIFIED</h2>
+
+<div class="line"></div>
+
+<div class="row">
+<span>Certificate ID</span>
+<b id="certificate"></b>
+</div>
+
+<div class="row">
+<span>Product</span>
+<b id="product"></b>
+</div>
+
+<div class="row">
+<span>Batch</span>
+<b id="batch"></b>
+</div>
+
+<div class="row">
+<span>Status</span>
+<b id="status"></b>
+</div>
+
+<div class="row">
+<span>Year</span>
+<b id="year"></b>
+</div>
+
+</div>
+
+<div id="invalid" style="display:none;">
+
+<div class="failed">
+
+✖
+
+</div>
+
+<h2>PRODUCT NOT FOUND</h2>
+
+<p>
+
+This certificate does not exist in STRID Database.
+
+</p>
+
+</div>
+
+<div class="footer">
+
+Powered by STRID Authentication System
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+
+</html>
